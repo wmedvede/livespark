@@ -56,6 +56,8 @@ import org.guvnor.structure.repositories.RepositoryService;
 import org.jboss.errai.bus.server.annotations.Service;
 import org.kie.appformer.provisioning.service.GwtWarBuildService;
 import org.kie.appformer.provisioning.shared.AppReady;
+import org.kie.workbench.common.services.backend.alabuilder.AlaBuilder;
+import org.kie.workbench.common.services.backend.builder.BuildServiceHelper;
 import org.kie.workbench.common.services.backend.builder.BuildServiceImpl;
 import org.kie.workbench.common.services.backend.builder.LRUBuilderCache;
 import org.kie.workbench.common.services.shared.project.KieProjectService;
@@ -84,6 +86,10 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
 
     private PipelineExecutor executor;
 
+    private AlaBuilder alaBuilder;
+
+    private BuildServiceHelper serviceHelper;
+
     // For proxying
     public GwtWarBuildServiceImpl() {
     }
@@ -100,8 +106,10 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
                                    final RepositoryService repositoryService, final Event< AppReady > appReadyEvent,
                                    final SourceRegistry sourceRegistry,
                                    final RuntimeRegistry runtimeRegistry, final PipelineRegistry pipelineRegistry,
-                                   final CDIPipelineEventListener pipelineEventListener ) {
-        super( pomService, m2RepoService, projectService, repositoryResolver, projectRepositoriesService, cache, handlers );
+                                   final CDIPipelineEventListener pipelineEventListener,
+                                   final BuildServiceHelper serviceHelper,
+                                   final AlaBuilder alaBuilder ) {
+        super( projectService, alaBuilder, cache );
         this.configExecutors = configExecutors;
         this.repositoryService = repositoryService;
         this.appReadyEvent = appReadyEvent;
@@ -109,6 +117,8 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
         this.pipelineRegistry = pipelineRegistry;
         this.sourceRegistry = sourceRegistry;
         this.pipelineEventListener = pipelineEventListener;
+        this.serviceHelper = serviceHelper;
+        this.alaBuilder = alaBuilder;
     }
 
     @Resource

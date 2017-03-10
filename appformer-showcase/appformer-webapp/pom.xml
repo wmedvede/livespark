@@ -424,6 +424,12 @@
       <artifactId>guvnor-ala-source-git</artifactId>
     </dependency>
 
+    <!-- KIE Workbench Playground Repository -->
+    <dependency>
+      <groupId>org.kie.workbench.playground</groupId>
+      <artifactId>playground-parent</artifactId>
+    </dependency>
+
     <!-- Common -->
     <dependency>
       <groupId>org.kie.workbench.services</groupId>
