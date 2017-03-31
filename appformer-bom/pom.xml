@@ -92,6 +92,37 @@
         <artifactId>appformer-flow-lang</artifactId>
         <version>${project.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.kie.appformer</groupId>
+        <artifactId>appformer-form-modeler-uploads-runtime-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.appformer</groupId>
+        <artifactId>appformer-form-modeler-uploads-runtime-backend</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.appformer</groupId>
+        <artifactId>appformer-form-modeler-uploads-runtime-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.appformer</groupId>
+        <artifactId>appformer-form-modeler-uploads-authoring-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.appformer</groupId>
+        <artifactId>appformer-form-modeler-uploads-authoring-backend</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.appformer</groupId>
+        <artifactId>appformer-form-modeler-uploads-authoring-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

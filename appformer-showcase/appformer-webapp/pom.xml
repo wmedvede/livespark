@@ -1283,6 +1283,33 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-form-modeler-uploads-runtime-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-form-modeler-uploads-runtime-backend</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-form-modeler-uploads-runtime-client</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-form-modeler-uploads-authoring-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-form-modeler-uploads-authoring-backend</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-form-modeler-uploads-authoring-client</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <!-- End AppFormer Modules -->
 
     <!-- Data sources management -->
@@ -1522,6 +1549,10 @@
 
               <!-- AppFormer -->
               <compileSourcesArtifact>org.kie.appformer:appformer-form-modeler-rendering-api</compileSourcesArtifact>
+              <compileSourcesArtifact>org.kie.appformer:appformer-form-modeler-uploads-runtime-api</compileSourcesArtifact>
+              <compileSourcesArtifact>org.kie.appformer:appformer-form-modeler-uploads-runtime-client</compileSourcesArtifact>
+              <compileSourcesArtifact>org.kie.appformer:appformer-form-modeler-uploads-authoring-api</compileSourcesArtifact>
+              <compileSourcesArtifact>org.kie.appformer:appformer-form-modeler-uploads-authoring-client</compileSourcesArtifact>
               <compileSourcesArtifact>org.kie.appformer:appformer-provisioning-api</compileSourcesArtifact>
               <compileSourcesArtifact>org.kie.appformer:appformer-provisioning-client</compileSourcesArtifact>
               <compileSourcesArtifact>org.kie.appformer:appformer-flow-api</compileSourcesArtifact>

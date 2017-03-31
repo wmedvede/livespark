@@ -76,6 +76,10 @@
   <inherits name="org.kie.workbench.common.forms.editor.FormModelerEditorClient"/>
   <inherits name="org.kie.workbench.common.forms.data.modeller.FormDataModellerIntegrationClient"/>
 
+  <!-- Forms Document Upload -->
+  <inherits name="org.kie.appformer.formmodeler.uploads.DocumentUploadClient"/>
+  <inherits name="org.kie.appformer.formmodeler.uploads.authoring.DocumentUploadAuthoringClient"/>
+
   <!-- Start AppFormer Modules -->
   <inherits name="org.kie.appformer.provisioning.AppFormerProvisioningAPI"/>
   <inherits name="org.kie.appformer.provisioning.AppFormerProvisioningClient"/>
