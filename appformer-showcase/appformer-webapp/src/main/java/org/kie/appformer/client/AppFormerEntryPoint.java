@@ -124,6 +124,7 @@ public class AppFormerEntryPoint extends DefaultWorkbenchEntryPoint {
                                     .newTopLevelMenu( constants.authoring() ).withItems( menusHelper.getAuthoringViews() ).endMenu()
                                     .newTopLevelMenu( constants.deploy() ).withItems( getDeploymentViews() ).endMenu()
                                     .newTopLevelMenu( constants.extensions() ).withItems( menusHelper.getExtensionsViews() ).endMenu()
+                                    .newTopLevelMenu( "Provisioning" ).withItems( getProvisioningViews() ).endMenu()
                                     .newTopLevelCustomMenu( iocManager.lookupBean( SearchMenuBuilder.class ).getInstance() ).endMenu()
                                     .build();
 
@@ -150,4 +151,15 @@ public class AppFormerEntryPoint extends DefaultWorkbenchEntryPoint {
 
         return result;
     }
+
+    protected List<MenuItem> getProvisioningViews() {
+        final List<MenuItem> result = new ArrayList<>( 1 );
+
+        result.add( MenuFactory.newSimpleItem( "Applications provisioning" )
+                            .perspective( "ProvisioningManagementPerspective" )
+                            .endMenu().build().getItems().get( 0 ) );
+
+        return result;
+    }
+
 }
