@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import org.guvnor.ala.ui.model.IDataSourceInfo;
 import org.guvnor.common.services.backend.exceptions.ExceptionUtilities;
 import org.guvnor.common.services.project.model.Project;
 import org.jboss.errai.bus.server.annotations.Service;
@@ -94,13 +95,13 @@ public class AppFormerProvisioningServiceImpl
         buildService.buildAndDeployProvisioningMode( project, params );
     }
 
-    public Collection< DataSourceInfo > findAvailableDataSources( String host,
+    public Collection< IDataSourceInfo > findAvailableDataSources(String host,
                                                                   int port,
                                                                   String user,
                                                                   String password,
                                                                   String realm ) {
         try {
-            List< DataSourceInfo > result = new ArrayList<>( );
+            List< IDataSourceInfo > result = new ArrayList<>( );
             Map< String, DataSourceInfo > dataSources = new HashMap<>( );
             dataSourceDefQueryService.findGlobalDataSources( false )
                     .stream( )

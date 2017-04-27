@@ -16,9 +16,13 @@
 
 package org.kie.appformer.provisioning.service;
 
+import org.guvnor.ala.ui.model.IServerOptions;
 import org.jboss.errai.common.client.api.annotations.MapsTo;
+import org.jboss.errai.common.client.api.annotations.Portable;
 
-public class ServerOptions {
+@Portable
+public class ServerOptions
+        implements IServerOptions {
 
     private String host;
 

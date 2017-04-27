@@ -16,17 +16,18 @@
 
 package org.kie.appformer.provisioning.service;
 
-import java.util.Collection;
 import java.util.Map;
 
+import org.guvnor.ala.ui.service.IProvisioningService;
 import org.guvnor.common.services.project.model.Project;
 import org.jboss.errai.bus.server.annotations.Remote;
 
 @Remote
-public interface AppFormerProvisioningService {
+public interface AppFormerProvisioningService
+        extends IProvisioningService {
 
     void startProvisioning( Project project, Map< String, String > params );
-
+/*
     Collection< DataSourceInfo > findAvailableDataSources( String host,
                                                            int port,
                                                            String user,
@@ -41,5 +42,6 @@ public interface AppFormerProvisioningService {
                                          String realm );
 
     ServerOptions getLocalServerOptions( );
+    */
 
 }

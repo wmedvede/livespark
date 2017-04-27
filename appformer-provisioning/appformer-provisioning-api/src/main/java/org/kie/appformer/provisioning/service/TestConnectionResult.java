@@ -16,9 +16,13 @@
 
 package org.kie.appformer.provisioning.service;
 
+import org.guvnor.ala.ui.model.ITestConnectionResult;
 import org.jboss.errai.common.client.api.annotations.MapsTo;
+import org.jboss.errai.common.client.api.annotations.Portable;
 
-public class TestConnectionResult {
+@Portable
+public class TestConnectionResult
+        implements ITestConnectionResult {
 
     private boolean httpConnectionError;
 
