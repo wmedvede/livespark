@@ -16,11 +16,13 @@
 
 package org.kie.appformer.provisioning.service;
 
+import org.guvnor.ala.ui.model.IDataSourceInfo;
 import org.jboss.errai.common.client.api.annotations.MapsTo;
 import org.jboss.errai.common.client.api.annotations.Portable;
 
 @Portable
-public class DataSourceInfo {
+public class DataSourceInfo
+        implements IDataSourceInfo {
 
     private String name;
 

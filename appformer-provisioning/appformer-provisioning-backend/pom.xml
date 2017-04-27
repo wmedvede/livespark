@@ -96,10 +96,15 @@
         <artifactId>guvnor-ala-wildfly-provider</artifactId>
     </dependency>
 
-      <dependency>
-          <groupId>org.kie.appformer</groupId>
-          <artifactId>appformer-ala-wildfly-provider</artifactId>
-      </dependency>
+    <dependency>
+      <groupId>org.kie.appformer</groupId>
+      <artifactId>appformer-ala-wildfly-provider</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.guvnor</groupId>
+      <artifactId>guvnor-ala-ui-api</artifactId>
+    </dependency>
 
     <dependency>
         <groupId>org.kie.appformer</groupId>
