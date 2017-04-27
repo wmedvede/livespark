@@ -307,7 +307,7 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
 
     public void buildFinished( @Observes final AfterPipelineExecutionEvent e ) {
         final List<org.guvnor.ala.runtime.Runtime> allRuntimes = runtimeRegistry.getRuntimes( 0, 10, "", true );
-        final Runtime get = allRuntimes.get( 0 );
+        final Runtime get = allRuntimes.get( allRuntimes.size() -1 );
         final String url = "http://" + get.getEndpoint().getHost() + ":" + get.getEndpoint().getPort() + "/" + get.getEndpoint().getContext();
         appReadyEvent.fire( new AppReady( url ) );
     }
