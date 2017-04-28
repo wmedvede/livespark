@@ -41,6 +41,9 @@ import org.guvnor.ala.pipeline.Pipeline;
 import org.guvnor.ala.pipeline.PipelineFactory;
 import org.guvnor.ala.pipeline.Stage;
 import static org.guvnor.ala.pipeline.StageUtil.config;
+import static org.kie.appformer.provisioning.service.PipelineConstants.WILDFLY_PROVISIONING_PIPELINE;
+import static org.kie.appformer.provisioning.service.PipelineConstants.WILDFLY_SDM_PIPELINE;
+
 import org.guvnor.ala.registry.PipelineRegistry;
 import org.guvnor.ala.registry.RuntimeRegistry;
 import org.guvnor.ala.source.git.config.GitConfig;
@@ -241,7 +244,7 @@ public class AppSetup extends BaseAppSetup {
                 .andThen( buildConfig )
                 .andThen( buildExec )
                 .andThen( providerConfig )
-                .andThen( appFormerRuntimeExec ).buildAs( "wildfly pipeline" );
+                .andThen( appFormerRuntimeExec ).buildAs( WILDFLY_PROVISIONING_PIPELINE );
         //Registering the Wildfly Pipeline to be available to the whole workbench
         pipelineRegistry.registerPipeline(wildflyPipeline);
 
@@ -252,7 +255,7 @@ public class AppSetup extends BaseAppSetup {
                 .andThen( codeServerExec )
                 .andThen( buildExec )
                 .andThen( providerConfig )
-                .andThen( runtimeExec ).buildAs( "wildfly sdm pipeline" );
+                .andThen( runtimeExec ).buildAs( WILDFLY_SDM_PIPELINE );
         //Registering the Wildfly Pipeline to be available to the whole workbench
         pipelineRegistry.registerPipeline(wildflySDMPipeline);
 

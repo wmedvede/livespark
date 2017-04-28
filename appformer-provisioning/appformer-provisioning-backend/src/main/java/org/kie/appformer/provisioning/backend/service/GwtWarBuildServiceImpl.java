@@ -60,6 +60,9 @@ import org.uberfire.backend.vfs.Path;
 import org.uberfire.backend.vfs.PathFactory;
 import org.uberfire.workbench.events.ResourceChange;
 
+import static org.kie.appformer.provisioning.service.PipelineConstants.WILDFLY_PROVISIONING_PIPELINE;
+import static org.kie.appformer.provisioning.service.PipelineConstants.WILDFLY_SDM_PIPELINE;
+
 @Specializes
 @ApplicationScoped
 @Service
@@ -163,7 +166,7 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
         final Path repoPath = PathFactory.newPath( "repo", rootPath.toURI().substring( 0, rootPath.toURI().indexOf( rootPath.getFileName() ) ) );
         final Repository repository = repositoryService.getRepository( repoPath );
 
-        final Pipeline pipe = pipelineRegistry.getPipelineByName( "wildfly pipeline" );
+        final Pipeline pipe = pipelineRegistry.getPipelineByName( WILDFLY_PROVISIONING_PIPELINE );
 
         final Input wildflyInput = new Input() {
             {
@@ -191,7 +194,7 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
         final Repository repository = repositoryService.getRepository( repoPath );
 
 
-        final Pipeline pipe = pipelineRegistry.getPipelineByName( "wildfly sdm pipeline" );
+        final Pipeline pipe = pipelineRegistry.getPipelineByName( WILDFLY_SDM_PIPELINE );
 
         final Input wildflyInput = new Input() {
             {
@@ -229,7 +232,7 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
 
         params.putIfAbsent( "provider-name", "wildfly-" + UUID.randomUUID( ).toString( ) );
 
-        final Pipeline pipe = pipelineRegistry.getPipelineByName( "wildfly pipeline" );
+        final Pipeline pipe = pipelineRegistry.getPipelineByName( WILDFLY_PROVISIONING_PIPELINE );
 
         final Input wildflyInput = new Input() {
             {
@@ -309,6 +312,7 @@ public class GwtWarBuildServiceImpl extends BuildServiceImpl implements GwtWarBu
         final List<org.guvnor.ala.runtime.Runtime> allRuntimes = runtimeRegistry.getRuntimes( 0, 10, "", true );
         final Runtime get = allRuntimes.get( allRuntimes.size() -1 );
         final String url = "http://" + get.getEndpoint().getHost() + ":" + get.getEndpoint().getPort() + "/" + get.getEndpoint().getContext();
-        appReadyEvent.fire( new AppReady( url ) );
+        //WM commented for the summit, since we wants the app to be listed in the provisioning perspective.
+        //appReadyEvent.fire( new AppReady( url ) );
     }
 }

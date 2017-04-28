@@ -27,6 +27,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.guvnor.ala.ui.model.IDataSourceInfo;
+import org.guvnor.ala.ui.service.IProvisioningService;
 import org.guvnor.common.services.backend.exceptions.ExceptionUtilities;
 import org.guvnor.common.services.project.model.Project;
 import org.jboss.errai.bus.server.annotations.Service;
@@ -45,7 +46,8 @@ import org.slf4j.LoggerFactory;
 @Service
 @ApplicationScoped
 public class AppFormerProvisioningServiceImpl
-        implements AppFormerProvisioningService {
+        implements AppFormerProvisioningService,
+                   IProvisioningService {
 
     private DataSourceDefQueryService dataSourceDefQueryService;
 
