@@ -38,6 +38,10 @@ public class PipelineEventsObserverOutput {
     private ServerMessageBus bus;
 
     public void beforePipelineEvent(@Observes BeforePipelineExecutionEvent bpee) {
+
+        /*
+        See why this RpcContext.getQueueSession() is null when the pipeline is launched from an executor typically in a separate thread.
+
         final String queueSessionId = RpcContext.getQueueSession().getSessionId();
         MessageBuilder.createMessage()
                 .toSubject("MavenBuilderOutput")
@@ -45,9 +49,13 @@ public class PipelineEventsObserverOutput {
                 .with(MessageParts.SessionID, queueSessionId)
                 .with("output", "Before Starting  Pipeline: " + bpee.getPipeline().getName() + "\n")
                 .noErrorHandling().sendNowWith(bus);
+        */
     }
 
     public void afterPipelineEvent(@Observes AfterPipelineExecutionEvent bpee) {
+                /*
+        See why this RpcContext.getQueueSession() is null when the pipeline is launched from an executor typically in a separate thread.
+
         final String queueSessionId = RpcContext.getQueueSession().getSessionId();
         MessageBuilder.createMessage()
                 .toSubject("MavenBuilderOutput")
@@ -55,9 +63,13 @@ public class PipelineEventsObserverOutput {
                 .with(MessageParts.SessionID, queueSessionId)
                 .with("output", "After Completing  Pipeline: " + bpee.getPipeline().getName() + "\n")
                 .noErrorHandling().sendNowWith(bus);
+                */
     }
 
     public void beforeStageEvent(@Observes BeforeStageExecutionEvent bpee) {
+                /*
+        See why this RpcContext.getQueueSession() is null when the pipeline is launched from an executor typically in a separate thread.
+
         final String queueSessionId = RpcContext.getQueueSession().getSessionId();
         MessageBuilder.createMessage()
                 .toSubject("MavenBuilderOutput")
@@ -65,9 +77,13 @@ public class PipelineEventsObserverOutput {
                 .with(MessageParts.SessionID, queueSessionId)
                 .with("output", "Before Stage : " + bpee.getStage().getName() + "\n")
                 .noErrorHandling().sendNowWith(bus);
+                */
     }
 
     public void afterStageEvent(@Observes AfterStageExecutionEvent bpee) {
+                /*
+        See why this RpcContext.getQueueSession() is null when the pipeline is launched from an executor typically in a separate thread.
+
         final String queueSessionId = RpcContext.getQueueSession().getSessionId();
         MessageBuilder.createMessage()
                 .toSubject("MavenBuilderOutput")
@@ -75,9 +91,13 @@ public class PipelineEventsObserverOutput {
                 .with(MessageParts.SessionID, queueSessionId)
                 .with("output", "After Stage : " + bpee.getStage().getName() + "\n")
                 .noErrorHandling().sendNowWith(bus);
+            */
     }
-    
+
     public void onStageErrorEvent(@Observes OnErrorStageExecutionEvent bpee) {
+                /*
+        See why this RpcContext.getQueueSession() is null when the pipeline is launched from an executor typically in a separate thread.
+
         final String queueSessionId = RpcContext.getQueueSession().getSessionId();
         MessageBuilder.createMessage()
                 .toSubject("MavenBuilderOutput")
@@ -85,9 +105,13 @@ public class PipelineEventsObserverOutput {
                 .with(MessageParts.SessionID, queueSessionId)
                 .with("output", "Error in Stage Stage : " + bpee.getStage().getName() + "\n" + bpee.getError().getMessage() + "\n")
                 .noErrorHandling().sendNowWith(bus);
+                */
     }
-    
+
     public void onStageErrorEvent(@Observes OnErrorPipelineExecutionEvent bpee) {
+                /*
+        See why this RpcContext.getQueueSession() is null when the pipeline is launched from an executor typically in a separate thread.
+
         final String queueSessionId = RpcContext.getQueueSession().getSessionId();
         MessageBuilder.createMessage()
                 .toSubject("MavenBuilderOutput")
@@ -95,6 +119,8 @@ public class PipelineEventsObserverOutput {
                 .with(MessageParts.SessionID, queueSessionId)
                 .with("output", "Error in Pipeline  : " + bpee.getPipeline().getName() + "\n" + bpee.getError().getMessage() + "\n")
                 .noErrorHandling().sendNowWith(bus);
+
+                */
     }
 
 }

@@ -34,17 +34,21 @@ public class AppFormerWildflyRuntimeExecConfig
 
     private String realm;
 
-    public AppFormerWildflyRuntimeExecConfig( ) {
+    public AppFormerWildflyRuntimeExecConfig() {
     }
 
-    public AppFormerWildflyRuntimeExecConfig( final ProviderId providerId,
-                                              final String warPath,
-                                              final String redeployStrategy,
-                                              final String jndiDataSource,
-                                              final String kieDataSource,
-                                              final String kieDataSourceDeploymentId,
-                                              final String realm ) {
-        super( providerId, warPath, redeployStrategy );
+    public AppFormerWildflyRuntimeExecConfig(final String runtimeName,
+                                             final ProviderId providerId,
+                                             final String warPath,
+                                             final String redeployStrategy,
+                                             final String jndiDataSource,
+                                             final String kieDataSource,
+                                             final String kieDataSourceDeploymentId,
+                                             final String realm) {
+        super(runtimeName,
+              providerId,
+              warPath,
+              redeployStrategy);
         this.jndiDataSource = jndiDataSource;
         this.kieDataSource = kieDataSource;
         this.kieDataSourceDeploymentId = kieDataSourceDeploymentId;
@@ -52,41 +56,42 @@ public class AppFormerWildflyRuntimeExecConfig
     }
 
     @Override
-    public WildflyRuntimeExecConfig asNewClone( final WildflyRuntimeExecConfig origin ) {
-        return new AppFormerWildflyRuntimeExecConfig( origin.getProviderId( ),
-                origin.getWarPath( ),
-                getRedeployStrategy(),
-                getJndiDataSource( ),
-                getKieDataSource( ),
-                getKieDataSourceDeploymentId( ),
-                getRealm() );
+    public WildflyRuntimeExecConfig asNewClone(final WildflyRuntimeExecConfig origin) {
+        return new AppFormerWildflyRuntimeExecConfig(origin.getRuntimeName(),
+                                                     origin.getProviderId(),
+                                                     origin.getWarPath(),
+                                                     getRedeployStrategy(),
+                                                     getJndiDataSource(),
+                                                     getKieDataSource(),
+                                                     getKieDataSourceDeploymentId(),
+                                                     getRealm());
     }
 
     @Override
-    public void setContext( Map< String, ? > context ) {
-        Input input = ( Input ) context.get( "input" );
-        if ( input != null ) {
-            jndiDataSource = input.get( "jndi-data-source" );
-            kieDataSource = input.get( "kie-data-source" );
-            kieDataSourceDeploymentId = input.get( "kie-data-source-deployment-id" );
-            realm = input.get( "wildfly-realm" );
+    public void setContext(Map<String, ?> context) {
+        Input input = (Input) context.get("input");
+        if (input != null) {
+            jndiDataSource = input.get("jndi-data-source");
+            kieDataSource = input.get("kie-data-source");
+            kieDataSourceDeploymentId = input.get("kie-data-source-deployment-id");
+            realm = input.get("wildfly-realm");
         }
-        super.setContext( context );
+        super.setContext(context);
     }
 
-    public String getJndiDataSource( ) {
+    public String getJndiDataSource() {
         return jndiDataSource;
     }
 
-    public String getKieDataSource( ) {
+    public String getKieDataSource() {
         return kieDataSource;
     }
 
-    public String getKieDataSourceDeploymentId( ) {
+    public String getKieDataSourceDeploymentId() {
         return kieDataSourceDeploymentId;
     }
 
-    public String getRealm( ) {
+    public String getRealm() {
         return realm;
     }
 }
