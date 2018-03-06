@@ -61,11 +61,13 @@ public class ValidationUtils {
         if (!SourceVersion.isIdentifier(value) || SourceVersion.isKeyword(value)) {
             return false;
         }
+        /*
         for (int i = 0; i < value.length(); i++) {
             if (!CharUtils.isAsciiPrintable(value.charAt(i))) {
                 return false;
             }
         }
+        */
         return true;
     }
 
